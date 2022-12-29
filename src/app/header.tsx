@@ -21,7 +21,7 @@ const NavItem = (props: LinkProps) => {
 };
 
 export const Header = () => (
-  <header className="sticky top-0 w-full">
+  <header className="fixed top-0 w-full">
     <nav className="bg-gray-600 shadow-lg">
       <ul className="flex items-center">
         <NavItem to="/">Home</NavItem>

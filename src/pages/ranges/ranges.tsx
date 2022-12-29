@@ -47,7 +47,7 @@ const RangesView = ({ ranges }: { ranges: Range[] }) => (
 export const Ranges = () => {
   return (
     <div className="max-w-screen-xl mx-auto py-4 grid grid-cols-3 gap-8">
-      <div className="col-span-3">
+      <div className="col-span-3 pt-10">
         <h2 className="text-2xl mb-4">Convert adjacent items of same type into ranges</h2>
         <p>The data of individual item should look like this: </p>
         <pre>{JSON.stringify(dataSample, null, 2)}</pre>
