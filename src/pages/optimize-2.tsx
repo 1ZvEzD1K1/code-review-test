@@ -1,14 +1,29 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, PureComponent, memo } from 'react';
 import { CenteredLayout } from '~/components';
 
 // TODO how can we optimize, prevent re-rendering ExpensiveComponent
 // by changing component structure ?
+//!Done
 
-const ExpensiveComponent = () => {
+//? first example
+const ExpensiveComponent = memo(() => {
   const now = performance.now();
   while (performance.now() - now < 100) {}
   return <div>Ohh.. so expensive</div>;
-};
+});
+
+//? second example
+// class ExpensiveComponent extends PureComponent {
+//   shouldComponentUpdate(): boolean {
+//     return false
+//   }
+
+//   render() {
+//     const now = performance.now();
+//     while (performance.now() - now < 100) {}
+//     return <div>Ohh.. so expensive</div>;
+//   }
+// }
 
 export const Optimize2 = () => {
   const [scrollTop, setScrollTop] = useState(0);

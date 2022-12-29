@@ -1,9 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from 'react';
 
+export enum colors {
+  red = 'red',
+  green = 'green',
+  blue = 'blue',
+}
+
+type Trange = {
+  date: string;
+  color: colors;
+};
+
 export const useRenderHighlight = (className: string) => {
   // TODO fix any
-  const ref = useRef<any>(null);
+  //!Done
+  const ref = useRef<HTMLLIElement>(null);
 
   if (ref.current) {
     ref.current.classList.add(className);
@@ -18,7 +30,8 @@ export const useRenderHighlight = (className: string) => {
 };
 
 // TODO fix any
-export const range = (n: number, fn: (n: number) => any) => {
+//!Done
+export const range = (n: number, fn: (n: number) => Trange) => {
   const result = [];
   for (let i = 0; i < n; i++) {
     result.push(fn(i + 1));
@@ -27,7 +40,8 @@ export const range = (n: number, fn: (n: number) => any) => {
 };
 
 // TODO fix any
-export const chooseRandomly = (items: any[]) => {
+//!Done
+export const chooseRandomly = (items: colors[]) => {
   const index = Math.floor(Math.random() * items.length);
   return items[index];
 };

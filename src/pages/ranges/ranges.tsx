@@ -1,15 +1,30 @@
 import clsx from 'clsx';
-import untypedItems from './items.json';
+// import untypedItems from './items.json';
 import untypedRanges from './ranges.json';
-import { colorToClassName, dataSample, Item, Range } from './utils';
+import { colorToClassName, dataSample, Item, items, Range } from './utils';
 
-const items = untypedItems as Item[];
+//!Done
+// const items = untypedItems as Item[];
 const ranges = untypedRanges as Range[];
 
-const transform = (items: Item[]) => {
+const transform = (items: Item[]): Range[] => {
   // TODO implement
+  //!Done
+  const transforMranges: Range[] = [];
+  let start: Item = items[0];
+  for (let i = 1; i < items.length; i++) {
+    if (items[i].color !== start.color) {
+      transforMranges.push({ start: start.date, end: items[i - 1].date, color: start.color });
+      start = items[i];
+    }
+  }
+  transforMranges.push({
+    start: start.date,
+    end: items[items.length - 1].date,
+    color: start.color,
+  });
 
-  return ranges;
+  return transforMranges;
 };
 
 const RangesView = ({ ranges }: { ranges: Range[] }) => (
