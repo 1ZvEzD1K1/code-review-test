@@ -1,28 +1,30 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { CenteredLayout } from '~/components';
 
 // TODO is there a way to not write this twice? =\
-type ButtonType = 'fast' | 'quality' | 'cheap';
-
-const buttons: ButtonType[] = ['fast', 'quality', 'cheap'];
+const buttons = ['fast', 'quality', 'cheap'];
+type ButtonType = typeof buttons[number];
 
 interface ButtonProps {
   button: ButtonType;
-  selectedButton: ButtonType | null;
+  isSelected: boolean;
   setSelectedButton: (value: ButtonType) => void;
 }
 
 // TODO is it possible to improve this component's interface (props)?
-const Button = ({ button, selectedButton, setSelectedButton }: ButtonProps) => {
-  const style = button === selectedButton;
+const Button = ({ button, isSelected, setSelectedButton }: ButtonProps) => {
+  const onClick = useCallback(() => {
+    setSelectedButton(button);
+  }, [button, setSelectedButton]);
+
   return (
     <button
       key={button}
-      onClick={() => setSelectedButton(button)}
+      onClick={onClick}
       className={clsx(
         'h-10 px-5 flex items-center justify-center rounded transition-colors',
-        style ? 'bg-green-400' : 'bg-gray-300',
+        isSelected ? 'bg-green-400' : 'bg-gray-300',
       )}
     >
       {button}
@@ -40,7 +42,7 @@ export const Refactor1 = () => {
           <Button
             key={button}
             button={button}
-            selectedButton={selectedButton}
+            isSelected={button === selectedButton}
             setSelectedButton={setSelectedButton}
           />
         ))}

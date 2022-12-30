@@ -7,9 +7,23 @@ const items = untypedItems as Item[];
 const ranges = untypedRanges as Range[];
 
 const transform = (items: Item[]) => {
-  // TODO implement
+  const transformedItems = items.reduce((arr: Range[], { date, color }: Item) => {
+    let lastItem = arr.at(-1);
 
-  return ranges;
+    if (arr.length > 0 && color === lastItem?.color) {
+      const start = new Date(lastItem.start) > new Date(date) ? date : lastItem.start;
+      const end = new Date(lastItem.end) < new Date(date) ? date : lastItem.end;
+
+      // Replace last element
+      arr.splice(-1, 1, { color, start, end });
+    } else {
+      // Push new element
+      arr.push({ color: color, start: date, end: date });
+    }
+    return arr;
+  }, []);
+
+  return transformedItems;
 };
 
 const RangesView = ({ ranges }: { ranges: Range[] }) => (
