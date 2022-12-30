@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from 'react';
 
-export const useRenderHighlight = (className: string) => {
-  // TODO fix any
-  const ref = useRef<any>(null);
+export const useRenderHighlight = <T extends HTMLElement>(className: string): React.RefObject<T> => {
+  const ref: React.RefObject<T> = useRef<T>(null);
 
   if (ref.current) {
-    ref.current.classList.add(className);
+    const currentElement = ref.current
+    currentElement.classList.add(className);
     setTimeout(() => {
       if (ref.current) {
-        ref.current.classList.remove(className);
+        currentElement.classList.remove(className);
       }
     }, 200);
   }
