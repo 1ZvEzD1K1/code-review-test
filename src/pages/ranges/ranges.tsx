@@ -1,33 +1,11 @@
 import clsx from 'clsx';
 import untypedItems from './items.json';
 import untypedRanges from './ranges.json';
-import { colorToClassName, dataSample, Item, Range } from './utils';
+import { colorToClassName, dataSample, Item, Range, transformItemsToRanges } from './utils';
+import { RangesView } from '~/components/RangesView/RangesView';
 
 const items = untypedItems as Item[];
 const ranges = untypedRanges as Range[];
-
-const transform = (items: Item[]) => {
-  // TODO implement
-
-  return ranges;
-};
-
-const RangesView = ({ ranges }: { ranges: Range[] }) => (
-  <ul className="space-y-4">
-    {ranges.map((item) => (
-      <li
-        key={item.start + item.end}
-        className={clsx(
-          'h-10 flex items-center justify-between px-5 rounded',
-          colorToClassName[item.color],
-        )}
-      >
-        <span>{item.start}</span>
-        <span>{item.end}</span>
-      </li>
-    ))}
-  </ul>
-);
 
 export const Ranges = () => {
   return (
@@ -54,7 +32,7 @@ export const Ranges = () => {
       <RangesView ranges={ranges} />
 
       <h3 className="text-xl font-bold row-start-2">Ranges implementation</h3>
-      <RangesView ranges={transform(items)} />
+      <RangesView ranges={transformItemsToRanges(items)} />
     </div>
   );
 };

@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from 'react';
+import { Item } from '~/pages/ranges/utils';
 
 export const useRenderHighlight = (className: string) => {
   // TODO fix any
@@ -18,7 +18,7 @@ export const useRenderHighlight = (className: string) => {
 };
 
 // TODO fix any
-export const range = (n: number, fn: (n: number) => any) => {
+export const range = (n: number, fn: (n: number) => Item) => {
   const result = [];
   for (let i = 0; i < n; i++) {
     result.push(fn(i + 1));
@@ -27,10 +27,7 @@ export const range = (n: number, fn: (n: number) => any) => {
 };
 
 // TODO fix any
-export const chooseRandomly = (items: any[]) => {
-  const index = Math.floor(Math.random() * items.length);
-  return items[index];
-};
+export const chooseRandomly = (items: any[]) => items[Math.floor(Math.random() * items.length)];
 
 export const addDays = (date: Date, amount: number) => {
   const newDate = new Date(date);
