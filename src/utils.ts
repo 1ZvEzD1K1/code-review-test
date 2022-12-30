@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from 'react';
 
-export const useRenderHighlight = <T extends HTMLElement>(className: string): React.RefObject<T> => {
+export const useRenderHighlight = <T extends HTMLElement>(
+  className: string,
+): React.RefObject<T> => {
   const ref: React.RefObject<T> = useRef<T>(null);
 
   if (ref.current) {
-    const currentElement = ref.current
+    const currentElement = ref.current;
     currentElement.classList.add(className);
     setTimeout(() => {
       if (ref.current) {
@@ -18,8 +20,8 @@ export const useRenderHighlight = <T extends HTMLElement>(className: string): Re
 };
 
 // TODO fix any
-export const range = (n: number, fn: (n: number) => any) => {
-  const result = [];
+export const range = <T>(n: number, fn: (n: number) => T): T[] => {
+  const result: T[] = [];
   for (let i = 0; i < n; i++) {
     result.push(fn(i + 1));
   }

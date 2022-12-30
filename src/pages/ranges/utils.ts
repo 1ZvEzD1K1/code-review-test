@@ -5,11 +5,12 @@ const baseDate = new Date('2022-01-01');
 // TODO could we have more strict type here?
 const colors = ['red', 'green', 'blue'];
 
-// TODO could we make this range function infer the type, so we don't get any here?
-export const items: Item[] = range(40, (index) => ({
+export const items: Item[] = range<Item>(40, (index) => ({
   date: formatDate(addDays(baseDate, index)),
   color: chooseRandomly(colors),
 }));
+
+console.log(items)
 
 export const dataSample = {
   start: '2022-01-01',
