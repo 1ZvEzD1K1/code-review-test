@@ -19,7 +19,7 @@ export const Todo = memo(({ text, done, onClick }: TodoProps) => {
     //? props have the same keys, so we can take any of them
     const isPropsValuesEqual = (Object.keys(prevProps) as Array<keyof TodoProps>)
       .reduce((acc: boolean[], key: keyof TodoProps) => {
-        //? to avoid callbacks such as onClick, onSubmit, etc
+        //? to avoid callbacks props such as onClick, onSubmit, etc
         if (!key.match(/on[A-Z]+.*/g)) {
           const isValueEquals = prevProps[key] === nextProps[key];
           return isValueEquals ? acc : [...acc, isValueEquals];

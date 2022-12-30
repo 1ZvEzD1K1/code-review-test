@@ -1,4 +1,4 @@
-import { addDays, chooseRandomly, formatDate, range } from '~/utils';
+import { addDays, chooseRandomly, formatDate, makeArrayFromEnum, range } from '~/utils';
 
 const baseDate = new Date('2022-01-01');
 
@@ -10,13 +10,13 @@ export enum Colors {
   blue = "blue"
 }
 
-const colors = Object.values(Colors).filter(value => isNaN(Number(value)));
+const colors = makeArrayFromEnum(Colors);
 
 // TODO could we make this range function infer the type, so we don't get any here?
-export const items: Item[] = range(40, (index) => ({
+export const items: Item[] = range<Item>(40, (index) => ({
   date: formatDate(addDays(baseDate, index)),
   color: chooseRandomly(colors),
-} as Item));
+}));
 
 export const dataSample = {
   start: '2022-01-01',

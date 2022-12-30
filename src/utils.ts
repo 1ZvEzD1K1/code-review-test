@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { Item } from '~/pages/ranges/utils';
 
 export const useRenderHighlight = (className: string) => {
   // TODO fix any
@@ -18,7 +17,7 @@ export const useRenderHighlight = (className: string) => {
 };
 
 // TODO fix any
-export const range = (n: number, fn: (n: number) => Item) => {
+export const range = <T>(n: number, fn: (n: number) => T) => {
   const result = [];
   for (let i = 0; i < n; i++) {
     result.push(fn(i + 1));
@@ -36,3 +35,11 @@ export const addDays = (date: Date, amount: number) => {
 };
 
 export const formatDate = (date: Date) => date.toISOString().split('T')[0];
+
+export const capitalize = (string: string) => string
+  .split(' ')
+  .map(word => word[0].toLocaleUpperCase() + word.slice(1).toLocaleLowerCase())
+  .join(' ');
+
+export const makeArrayFromEnum = (enumObj: { [key: string | number]: any }) => Object.values(enumObj).filter(value => isNaN(Number(value)));
+export const replacePunctuation = (string: string) => string.replace(/[-.,_:;]/g, ' ');
