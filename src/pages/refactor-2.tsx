@@ -1,26 +1,31 @@
 import { CenteredLayout } from '~/components';
 
-// TODO refactor
+type ITextType = 'question' | 'answer';
 
 interface QuestionOrAnswer {
-  question?: string;
-  answer?: string;
+  children: React.ReactNode;
+  type: ITextType;
 }
 
-const QnA: QuestionOrAnswer[] = [
-  { question: 'Do you run like a fish?' },
-  { answer: 'Absolutely man' },
-  { question: 'Have you tried to swim like a dinosaur?' },
-  { answer: 'Nah, not my cup of tea' },
-  { question: 'How are we counting from 5 to 10?' },
-  { answer: 'Do I look like a counter?' },
+interface ITextItem {
+  text: string;
+  type: ITextType;
+}
+
+const QnA: ITextItem[] = [
+  { text: 'Do you run like a fish?', type: 'question' },
+  { text: 'Absolutely man', type: 'answer' },
+  { text: 'Have you tried to swim like a dinosaur?', type: 'question' },
+  { text: 'Nah, not my cup of tea', type: 'answer' },
+  { text: 'How are we counting from 5 to 10?', type: 'question' },
+  { text: 'Do I look like a counter?', type: 'answer' },
 ];
 
-const QnaRender = ({ question, answer }: QuestionOrAnswer) => {
-  if (question) {
-    return <h3 className="font-bold text-lg">{question}</h3>;
+const QnaRender = ({ type, children }: QuestionOrAnswer) => {
+  if (type === 'question') {
+    return <h3 className="font-bold text-lg">{children}</h3>;
   } else {
-    return <p className="mb-2">{answer}</p>;
+    return <p className="mb-2">{children}</p>;
   }
 };
 
@@ -29,7 +34,9 @@ export const Refactor2 = () => {
     <CenteredLayout className="gap-2">
       <div className="text-3xl mb-2">See the code</div>
       {QnA.map((item, index) => (
-        <QnaRender key={index} {...item} />
+        <QnaRender key={index} type={item.type}>
+          {item.text}
+        </QnaRender>
       ))}
     </CenteredLayout>
   );
