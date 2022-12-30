@@ -19,7 +19,6 @@ export const useRenderHighlight = <T extends HTMLElement>(
   return ref;
 };
 
-// TODO fix any
 export const range = <T>(n: number, fn: (n: number) => T): T[] => {
   const result: T[] = [];
   for (let i = 0; i < n; i++) {
@@ -28,8 +27,7 @@ export const range = <T>(n: number, fn: (n: number) => T): T[] => {
   return result;
 };
 
-// TODO fix any
-export const chooseRandomly = (items: any[]) => {
+export const chooseRandomly = <T>(items: T[]): T => {
   const index = Math.floor(Math.random() * items.length);
   return items[index];
 };
