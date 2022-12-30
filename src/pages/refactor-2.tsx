@@ -30,14 +30,17 @@ const QnaRender = ({ type, children }: QuestionOrAnswer) => {
 };
 
 export const Refactor2 = () => {
+
+  const renderItem = (item: ITextItem, index: number) => (
+    <QnaRender key={index} type={item.type}>
+      {item.text}
+    </QnaRender>
+  )
+
   return (
     <CenteredLayout className="gap-2">
       <div className="text-3xl mb-2">See the code</div>
-      {QnA.map((item, index) => (
-        <QnaRender key={index} type={item.type}>
-          {item.text}
-        </QnaRender>
-      ))}
+      {QnA.map(renderItem)}
     </CenteredLayout>
   );
 };
