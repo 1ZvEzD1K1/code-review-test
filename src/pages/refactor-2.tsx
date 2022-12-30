@@ -17,19 +17,34 @@ const QnA: QuestionOrAnswer[] = [
 ];
 
 const QnaRender = ({ question, answer }: QuestionOrAnswer) => {
-  if (question) {
-    return <h3 className="font-bold text-lg">{question}</h3>;
-  } else {
-    return <p className="mb-2">{answer}</p>;
-  }
+  // if (question) {
+  //   return <h3 className="font-bold text-lg">{question}</h3>;
+  // } else {
+  //   return <p className="mb-2">{answer}</p>;
+  // }
+
+  //***********************************************************************************/
+  //we can just use conditional rendering instead
+  return question ? (
+    <h3 className="font-bold text-lg">{question}</h3>
+  ) : (
+    <p className="mb-2">{answer}</p>
+  );
 };
 
 export const Refactor2 = () => {
   return (
     <CenteredLayout className="gap-2">
       <div className="text-3xl mb-2">See the code</div>
-      {QnA.map((item, index) => (
-        <QnaRender key={index} {...item} />
+      {QnA.map((item) => (
+        //***********************************************************************************/
+        //key value must be unique, using index could cause problems
+        //also passing all the props using spread opetator is not the best practice
+        <QnaRender
+          key={item.question ? item.question : item.answer}
+          answer={item.answer}
+          question={item.question}
+        />
       ))}
     </CenteredLayout>
   );

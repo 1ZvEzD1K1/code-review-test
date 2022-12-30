@@ -21,7 +21,7 @@ interface ButtonProps {
 }
 
 // TODO is it possible to improve this component's interface (props)?
-//So to let the parent el when to re-render it self we should lift state up using setSelectedButton, so it`s required to share it with Button. selectedButton is used to compare active button with one that is currently shared with component, and button prop used for comparing and for a content. So it`s seems that all props where required. 
+//So to let the parent el when to re-render we should lift state up using setSelectedButton func, so it`s required to share it with Button. Value of selectedButton is used to compare active button with one that is currently shared with component, and button prop used for comparing and for a content. So it`s seems that all props where required here. 
 const Button = ({ button, selectedButton, setSelectedButton }: ButtonProps) => {
   const style = button === selectedButton;
   return (
