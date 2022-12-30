@@ -10,17 +10,20 @@ const todosData = [
 ];
 
 // TODO Fix all list re-rendering when only one component is changed :(
+/**********************************************************************/
 
+// So re-renders where cause because we were sending an anonymous func as a prop, also we had to change our useCallback behavior, cleaning dependency array and using functional setState  
 interface TodoProps {
   text: string;
   done: boolean;
-  onClick: () => void;
+  id: number;
+  onClick: (id: number) => void;
 }
 
-const Todo = memo(({ text, done, onClick }: TodoProps) => {
+const Todo = memo(({ text, done, onClick, id }: TodoProps) => {
   const ref = useRenderHighlight(css.render);
   return (
-    <li ref={ref} onClick={onClick} className={css.listItem}>
+    <li ref={ref} onClick={() => onClick(id)} className={css.listItem}>
       {done ? '[x]' : '[ ]'} {text}
     </li>
   );
@@ -31,9 +34,9 @@ export const Optimize1 = () => {
 
   const handleTodoClick = useCallback(
     (id: number) => {
-      setTodos(todos.map((todo) => (todo.id === id ? { ...todo, done: !todo.done } : todo)));
+      setTodos(prevTodos => [...prevTodos.map((todo) => (todo.id === id ? { ...todo, done: !todo.done } : todo))]);
     },
-    [todos],
+    [],
   );
 
   return (
@@ -46,7 +49,8 @@ export const Optimize1 = () => {
             key={item.id}
             text={item.text}
             done={item.done}
-            onClick={() => handleTodoClick(item.id)}
+            id={item.id}
+            onClick={handleTodoClick}
           />
         ))}
       </ul>
