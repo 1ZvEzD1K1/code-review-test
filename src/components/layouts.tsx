@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { ReactNode } from 'react';
+import { headerHeigth } from '~/app/header.variable.height';
 
 export const CenteredLayout = ({
   className,
@@ -8,11 +9,9 @@ export const CenteredLayout = ({
   className?: string;
   children: ReactNode;
 }) => (
-  // TODO is there a better way to fill available remaining height?
-  // scroll height seems bugged :\
   <div
     className={clsx(
-      'flex flex-col items-center justify-center h-[calc(100vh-48px)] pb-32 text-slate-700',
+      `flex flex-col items-center justify-center h-[calc(100vh-${headerHeigth}px)] pb-32 text-slate-700`,
       className,
     )}
   >

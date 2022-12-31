@@ -1,0 +1,29 @@
+$tip: #909090;
+$image-background: #2A2A2A;
+
+.tips {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 0 48px;
+
+  &__text {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    line-height: 19px;
+    color: $tip;
+  }
+
+  &__icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background-color: $image-background;
+    margin: 0px 8px;
+
+    mix-blend-mode: normal;
+    border-radius: 4px;
+  }
+}

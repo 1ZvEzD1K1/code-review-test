@@ -1,33 +1,44 @@
 import clsx from 'clsx';
-import untypedItems from './items.json';
+import { Colors } from '~/types/Colors';
+import { Item } from '~/types/Item';
+import { Range } from '~/types/Ranges';
 import untypedRanges from './ranges.json';
-import { colorToClassName, dataSample, Item, Range } from './utils';
+import { RangesView } from './RangesView';
+import { colorToClassName, dataSample, items } from './utils';
 
-const items = untypedItems as Item[];
 const ranges = untypedRanges as Range[];
 
-const transform = (items: Item[]) => {
-  // TODO implement
+const transform = (items: Item[]): Range[] => {
+  const newRanges = [];
+  let item = {
+    start: '',
+    end: '',
+    color: Colors.GREEN,
+  }
 
-  return ranges;
+  for (let i = 0; i < items.length; i++) {
+    const current = items[i];
+
+    if (!item.start) {
+      item.start = current.date;
+      item.color = current.color;
+    }
+
+    if (current.color === item.color) {
+      item.end = current.date;
+    } else {
+      newRanges.push(item);
+      item = {
+        start: current.date,
+        end: current.date,
+        color: current.color,
+      }
+    }
+  }
+  newRanges.push(item);
+
+  return newRanges;
 };
-
-const RangesView = ({ ranges }: { ranges: Range[] }) => (
-  <ul className="space-y-4">
-    {ranges.map((item) => (
-      <li
-        key={item.start + item.end}
-        className={clsx(
-          'h-10 flex items-center justify-between px-5 rounded',
-          colorToClassName[item.color],
-        )}
-      >
-        <span>{item.start}</span>
-        <span>{item.end}</span>
-      </li>
-    ))}
-  </ul>
-);
 
 export const Ranges = () => {
   return (
@@ -43,7 +54,10 @@ export const Ranges = () => {
         {items.map((item) => (
           <li
             key={item.date}
-            className={clsx('h-10 flex items-center px-5 rounded', colorToClassName[item.color])}
+            className={clsx(
+              'h-10 flex items-center px-5 rounded',
+              colorToClassName[item.color],
+            )}
           >
             {item.date}
           </li>

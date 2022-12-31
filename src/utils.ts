@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from 'react';
+import { Colors } from './types/Colors';
+import { Item } from './types/Item';
 
 export const useRenderHighlight = (className: string) => {
-  // TODO fix any
-  const ref = useRef<any>(null);
+  const ref = useRef<HTMLElement | null>(null);
 
   if (ref.current) {
     ref.current.classList.add(className);
@@ -17,23 +18,25 @@ export const useRenderHighlight = (className: string) => {
   return ref;
 };
 
-// TODO fix any
-export const range = (n: number, fn: (n: number) => any) => {
+export const range = (n: number, fn: (n: number) => Item) => {
   const result = [];
+
   for (let i = 0; i < n; i++) {
     result.push(fn(i + 1));
   }
+
   return result;
 };
 
-// TODO fix any
-export const chooseRandomly = (items: any[]) => {
-  const index = Math.floor(Math.random() * items.length);
+export const chooseRandomly = (items: Colors[]) => {
+  const index = Math.trunc(Math.random() * items.length);
+
   return items[index];
 };
 
 export const addDays = (date: Date, amount: number) => {
   const newDate = new Date(date);
+
   newDate.setDate(newDate.getDate() + amount);
   return newDate;
 };

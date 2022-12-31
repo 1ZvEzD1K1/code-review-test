@@ -1,39 +1,18 @@
-import { memo, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { CenteredLayout } from '~/components';
-import { useRenderHighlight } from '~/utils';
-import css from './optimize-1.module.scss';
-
-const todosData = [
-  { id: 1, text: 'run a marathon', done: false },
-  { id: 2, text: 'ride an elephant', done: false },
-  { id: 3, text: 'swim with a fish', done: false },
-];
-
-// TODO Fix all list re-rendering when only one component is changed :(
-
-interface TodoProps {
-  text: string;
-  done: boolean;
-  onClick: () => void;
-}
-
-const Todo = memo(({ text, done, onClick }: TodoProps) => {
-  const ref = useRenderHighlight(css.render);
-  return (
-    <li ref={ref} onClick={onClick} className={css.listItem}>
-      {done ? '[x]' : '[ ]'} {text}
-    </li>
-  );
-});
+import { todosData } from './optimize-1.data.todosData';
+import { Todo } from './Todo';
+import { TodosData } from '~/types/TodosData';
 
 export const Optimize1 = () => {
-  const [todos, setTodos] = useState(todosData);
+  const [todos, setTodos] = useState<TodosData[]>(todosData);
 
   const handleTodoClick = useCallback(
-    (id: number) => {
-      setTodos(todos.map((todo) => (todo.id === id ? { ...todo, done: !todo.done } : todo)));
-    },
-    [todos],
+    (id: number) => (
+      setTodos(current => (
+        current
+          .map(todo => todo.id === id ? { ...todo, done: !todo.done } : todo)
+    ))), [],
   );
 
   return (
@@ -44,9 +23,8 @@ export const Optimize1 = () => {
         {todos.map((item) => (
           <Todo
             key={item.id}
-            text={item.text}
-            done={item.done}
-            onClick={() => handleTodoClick(item.id)}
+            item={item}
+            onClick={handleTodoClick}
           />
         ))}
       </ul>
