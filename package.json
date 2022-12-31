@@ -1,5 +1,6 @@
 {
   "name": "test-tasks",
+  "homepage": "https://thevovchik.github.io/test-task",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint --fix '*.cjs' './src/**/*.ts*'"
+    "lint": "eslint --fix '*.cjs' './src/**/*.ts*'",
+    "server": "json-server --watch src/api/db.json --port 5000",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@tanstack/react-location": "^3.7.4",
@@ -18,6 +22,7 @@
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.13",
+    "axios": "^1.2.2",
     "clsx": "^1.2.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -25,6 +30,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.20",
     "prettier": "^2.8.1",
     "react": "^18.2.0",
@@ -33,6 +39,7 @@
     "sass": "^1.57.1",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.9.3",
+    "uuid": "^9.0.0",
     "vite": "^4.0.0"
   },
   "healthier": {
@@ -45,5 +52,8 @@
     "trailingComma": "all",
     "singleQuote": true,
     "printWidth": 100
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.0"
   }
 }

@@ -1,0 +1,177 @@
+{
+  "photo": [
+    {
+      "id": 1,
+      "name": "DSC_0012_cold.jpg"
+    },
+    {
+      "id": 2,
+      "name": "DSC_0027.jpg"
+    },
+    {
+      "id": 3,
+      "name": "DSC_0028.jpg"
+    },
+    {
+      "id": 4,
+      "name": "DSC_0019.jpg"
+    },
+    {
+      "id": 5,
+      "name": "DSC_0036.jpg"
+    },
+    {
+      "id": 6,
+      "name": "DSC_0215.jpg"
+    },
+    {
+      "id": 7,
+      "name": "DSC_0052.jpg"
+    },
+    {
+      "id": 8,
+      "name": "DSC_0042.jpg"
+    },
+    {
+      "id": 9,
+      "name": "DSC_0026.jpg"
+    },
+    {
+      "id": 10,
+      "name": "DSC_0022.jpg"
+    },
+    {
+      "id": 11,
+      "name": "DSC_0012_warm.jpg"
+    },
+    {
+      "id": 12,
+      "name": "photo_2022-12-13_21-16-38.jpg"
+    },
+    {
+      "id": 13,
+      "name": "question.png"
+    },
+    {
+      "id": 14,
+      "name": "—Pngtree—social media icons set facebook_3556903.png"
+    },
+    {
+      "id": 15,
+      "name": "DSC_0072.jpg"
+    },
+    {
+      "id": 16,
+      "name": "DSC_0057.jpg"
+    },
+    {
+      "id": 17,
+      "name": "DSC_0061.jpg"
+    },
+    {
+      "id": 18,
+      "name": "DSC_0186.jpg"
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "imageId": 1,
+      "author": "Aa Saa",
+      "properties": {
+        "message": "a",
+        "x": 563,
+        "y": 158,
+        "isOpen": false
+      }
+    },
+    {
+      "id": 2,
+      "imageId": 2,
+      "author": "Aa Saa",
+      "properties": {
+        "message": "a",
+        "x": 286,
+        "y": 155,
+        "isOpen": false
+      }
+    },
+    {
+      "id": 3,
+      "imageId": 3,
+      "author": "Aa Saa",
+      "properties": {
+        "message": "a",
+        "x": 503,
+        "y": 378,
+        "isOpen": false
+      }
+    },
+    {
+      "id": 4,
+      "imageId": 4,
+      "author": "Aa Saa",
+      "properties": {
+        "message": "a",
+        "x": 392,
+        "y": 141,
+        "isOpen": false
+      }
+    },
+    {
+      "id": 5,
+      "imageId": 5,
+      "author": "Asd Fsda",
+      "properties": {
+        "message": "adasdasd",
+        "x": 278,
+        "y": 138,
+        "isOpen": false
+      }
+    },
+    {
+      "id": 8,
+      "imageId": 13,
+      "author": "Sveta Loboda",
+      "properties": {
+        "message": "9kasi",
+        "x": 283,
+        "y": 311,
+        "isOpen": false
+      }
+    },
+    {
+      "id": 10,
+      "imageId": 12,
+      "author": "Li Su",
+      "properties": {
+        "message": "come on",
+        "x": 185,
+        "y": 88,
+        "isOpen": false
+      }
+    },
+    {
+      "id": 11,
+      "imageId": 12,
+      "author": "Harry Potter",
+      "properties": {
+        "message": "Comment",
+        "x": 218,
+        "y": 242,
+        "isOpen": false
+      }
+    },
+    {
+      "id": 12,
+      "imageId": 13,
+      "author": "Luk Sky",
+      "properties": {
+        "message": "left some here",
+        "x": 338,
+        "y": 194,
+        "isOpen": false
+      }
+    }
+  ]
+}
