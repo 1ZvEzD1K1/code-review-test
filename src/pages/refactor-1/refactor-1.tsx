@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { CenteredLayout } from '~/components';
 import { Button, ButtonOrNull } from '~/components/Button/Button';
+import { makeArrayFromEnum } from '~/utils';
 
 // TODO is there a way to not write this twice? =\
 export enum ButtonType {
@@ -8,7 +9,7 @@ export enum ButtonType {
   'quality',
   'cheap'
 }
-const buttons = (Object.values(ButtonType).filter(button => isNaN(Number(button))) as Array<ButtonType>);
+const buttons = makeArrayFromEnum(ButtonType);
 
 export const Refactor1 = () => {
   const [selectedButton, setSelectedButton] = useState<ButtonOrNull>(null);
@@ -20,7 +21,7 @@ export const Refactor1 = () => {
           <Button
             key={button}
             button={button}
-            selectedButton={selectedButton}
+            isSelected={selectedButton === button}
             setSelectedButton={setSelectedButton}
           />
         ))}

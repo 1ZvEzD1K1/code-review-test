@@ -29,6 +29,6 @@ export const Todo = memo(({ text, done, onClick }: TodoProps) => {
       }, []);
     //? if final array isn't empty, props was changed
     return !isPropsValuesEqual.length;
-  },
+  }
 );
 
