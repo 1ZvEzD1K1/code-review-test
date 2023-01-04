@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { CenteredLayout } from '~/components';
 import { useRenderHighlight } from '~/utils';
 import css from './optimize-1.module.scss';
