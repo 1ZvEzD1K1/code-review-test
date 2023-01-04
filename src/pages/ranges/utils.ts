@@ -6,10 +6,10 @@ const baseDate = new Date('2022-01-01');
 // const colors = ['red', 'green', 'blue'];
 // --------------
 // DONE: use enum
-enum colors {
-  red = "red",
-  green = "green",
-  blue = "blue",
+export enum colors {
+  red = 'red',
+  green = 'green',
+  blue = 'blue',
 };
 
 // TODO could we make this range function infer the type, so we don't get any here?
