@@ -1,0 +1,76 @@
+{
+  "annotations": [
+    {
+      "id": 1,
+      "author": "Josh Dun",
+      "comment": "Please remove this image from the slide.",
+      "pos": {
+        "x": 60,
+        "y": 60
+      }
+    },
+    {
+      "id": 2,
+      "author": "Marie Ruecker",
+      "comment": "It doesn't look that good, please put some more creativeness into this.",
+      "pos": {
+        "x": 287,
+        "y": 143
+      }
+    },
+    {
+      "id": 3,
+      "author": "Stephen Huels",
+      "comment": "Please change the color to red.",
+      "pos": {
+        "x": 114,
+        "y": 19
+      }
+    },
+    {
+      "author": "New Author",
+      "comment": "2222",
+      "pos": {
+        "x": 152,
+        "y": 214
+      },
+      "id": 10
+    },
+    {
+      "author": "New Author",
+      "comment": "13 ",
+      "pos": {
+        "x": 78,
+        "y": 296
+      },
+      "id": 13
+    },
+    {
+      "author": "New Author",
+      "comment": "14 1 4",
+      "pos": {
+        "x": 228,
+        "y": 350
+      },
+      "id": 14
+    },
+    {
+      "author": "New Author",
+      "comment": "15",
+      "pos": {
+        "x": 141,
+        "y": 309
+      },
+      "id": 15
+    },
+    {
+      "author": "New Author",
+      "comment": "1515115",
+      "pos": {
+        "x": 174,
+        "y": 493
+      },
+      "id": 16
+    }
+  ]
+}

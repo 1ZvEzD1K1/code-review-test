@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+
+
+.annotationsMain {
+  background: #1E1E1E;
+  padding-top: 32px;
+  gap: 32px;
+
+  & > div {
+    width: 80%;
+  }
+
+  & .topLevel {
+    display: flex;
+    justify-content: space-between;
+
+    & span {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 33px;
+      color: #FFFFFF;
+    }
+
+    & button {
+      width: 155px;
+      height: 40px;
+      background: #BEBEBE;
+      border-radius: 4px;
+
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 22px;
+      color: #1E1E1E;
+    }
+  }
+
+  & .middleLevel {
+    background: #2A2A2A;
+    height: 80%;
+    overflow: hidden;
+
+    & .pictureAnnotation {
+      display: flex;
+      justify-content: center;
+
+      & > div {
+        cursor: pointer;
+      }
+      
+      // & .dataAnnotationsResult {
+      //   position: absolute;
+      //   left: 0;
+      //   top: 0;
+      // }
+    }
+  }
+
+  & .bottomLevel {
+    display: flex;
+    gap: 8px;
+    & > span {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+      color: #909090;
+    }
+    
+    & > img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
