@@ -10,9 +10,11 @@ export const CenteredLayout = ({
 }) => (
   // TODO is there a better way to fill available remaining height?
   // scroll height seems bugged :\
+  // -------------------------------------------------------------
+  // DONE : h-screen
   <div
     className={clsx(
-      'flex flex-col items-center justify-center h-[calc(100vh-48px)] pb-32 text-slate-700',
+      'flex flex-col items-center justify-center h-screen pb-32 text-slate-700',
       className,
     )}
   >

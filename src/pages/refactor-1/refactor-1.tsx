@@ -3,9 +3,14 @@ import { useState } from 'react';
 import { CenteredLayout } from '~/components';
 
 // TODO is there a way to not write this twice? =\
-type ButtonType = 'fast' | 'quality' | 'cheap';
+// -------------------------------------
+// DONE: use ENUM
 
-const buttons: ButtonType[] = ['fast', 'quality', 'cheap'];
+enum ButtonType {
+  fast = 'fast', 
+  quality = 'quality', 
+  che = 'cheap'
+}
 
 interface ButtonProps {
   button: ButtonType;
@@ -14,7 +19,10 @@ interface ButtonProps {
 }
 
 // TODO is it possible to improve this component's interface (props)?
-const Button = ({ button, selectedButton, setSelectedButton }: ButtonProps) => {
+// -------------------------------------
+// DONE: use FC<ButtonProps>
+
+const Button: React.FC<ButtonProps> = ({ button, selectedButton, setSelectedButton }) => {
   const style = button === selectedButton;
   return (
     <button
@@ -36,7 +44,7 @@ export const Refactor1 = () => {
     <CenteredLayout className="gap-4">
       <div className="text-3xl">See the code</div>
       <div className="grid grid-cols-3 gap-2 w-60">
-        {buttons.map((button) => (
+        {Object.values(ButtonType).map((button) => (
           <Button
             key={button}
             button={button}
