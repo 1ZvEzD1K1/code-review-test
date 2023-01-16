@@ -1,4 +1,4 @@
-import { CenteredLayout } from '~/components';
+import { CenteredLayout } from '~/layouts';
 import { IQuestionOrAnswer, QnaRender } from '~/components/QnARender';
 
 // TODO refactor
@@ -22,7 +22,10 @@ export const Refactor2 = () => {
       <div className='text-3xl mb-2'>See the code</div>
       {
         QnA.map((item) => (
-          <QnaRender key={ canIChangeInputData ? item.id : JSON.stringify(item) } { ...item } />
+          <QnaRender
+            key={ canIChangeInputData ? item.id : JSON.stringify(item) }
+            { ...item }
+          />
         ))
       }
     </CenteredLayout>

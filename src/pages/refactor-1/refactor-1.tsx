@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CenteredLayout } from '~/components';
+import { CenteredLayout } from '~/layouts';
 import { Button, ButtonOrNull } from '~/components/Button/Button';
 import { makeArrayFromEnum } from '~/utils';
 

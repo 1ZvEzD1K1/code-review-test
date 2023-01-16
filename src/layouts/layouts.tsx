@@ -8,11 +8,11 @@ export const CenteredLayout = ({
   className?: string;
   children: ReactNode;
 }) => (
-  // TODO is there a better way to fill available remaining height?
+  //TODO is there a better way to fill available remaining height?
   // scroll height seems bugged :\
   <div
     className={clsx(
-      'flex flex-col items-center justify-center h-4/5 pb-32 text-slate-700',
+      'flex flex-col items-center justify-center h-[100vh] pb-32 text-slate-700',
       className,
     )}
   >

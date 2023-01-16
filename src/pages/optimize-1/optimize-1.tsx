@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { CenteredLayout } from '~/components';
+import { CenteredLayout } from '~/layouts';
 import { Todo } from '~/components/Todo/Todo';
 
 export interface ITodo {

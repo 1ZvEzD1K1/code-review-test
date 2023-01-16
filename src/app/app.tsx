@@ -1,5 +1,5 @@
 import { Outlet, ReactLocation, Route, Router } from '@tanstack/react-location';
-import { CenteredLayout } from '~/components';
+import { CenteredLayout } from '~/layouts';
 import { Optimize1, Optimize2, Ranges, Refactor1, Refactor2 } from '~/pages';
 import { Header } from './header';
 
